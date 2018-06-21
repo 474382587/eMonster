@@ -11,7 +11,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .banner
-  height 2.1rem
 img
   width 100%
   height 100%
