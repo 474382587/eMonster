@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <swiper ref="mySwiper ">
+    <swiper ref="mySwiper" :options="swiperOption">
     <swiper-slide v-for="(item,index) in separate" :key="index">
       <div class="category" v-for="category in item" :key="category.id">
         <img class="cate-img" :src="category.imgUrl" alt="category.id">
@@ -19,6 +19,15 @@ export default {
   props: {
     categories: Array
   },
+  data () {
+    return {
+      swiperOption: {
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      }
+    }
+  },
   computed: {
     separate () {
       let result = []
@@ -33,13 +42,25 @@ export default {
 
 <style lang="stylus" scoped>
 .categories {
-  padding: 0.2rem;
-
+  padding-bottom: 0.2rem
+  .swiper-container{
+    padding-bottom .4rem
+    .swiper-pagination{
+      bottom -0.01rem
+      >>>.swiper-pagination-bullet{
+        width .08rem
+        height .08rem
+      }
+      >>>.swiper-pagination-bullet-active{
+        background-color #666
+      }
+    }
+  }
   .category {
     width: 20%;
     float: left;
     text-align: center;
-
+    margin-top .2rem
     .cate-img {
       width: 0.9rem;
     }

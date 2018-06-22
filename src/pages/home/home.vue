@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="home">
     <home-header></home-header>
     <home-search></home-search>
     <home-banner></home-banner>
     <home-category :categories="categories"></home-category>
     <home-featured></home-featured>
+    <home-recommend></home-recommend>
+    <bottom-nav></bottom-nav>
   </div>
 </template>
 
@@ -15,6 +17,8 @@ import HomeSearch from './components/search.vue'
 import HomeBanner from './components/banner.vue'
 import HomeCategory from './components/category.vue'
 import HomeFeatured from './components/featured.vue'
+import HomeRecommend from './components/recommend.vue'
+import BottomNav from '@/components/bottom-nav.vue'
 export default {
   name: 'Home',
   components: {
@@ -22,7 +26,9 @@ export default {
     'home-search': HomeSearch,
     'home-banner': HomeBanner,
     'home-category': HomeCategory,
-    'home-featured': HomeFeatured
+    'home-featured': HomeFeatured,
+    'home-recommend': HomeRecommend,
+    'bottom-nav': BottomNav
   },
   data () {
     return {
