@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Accordion</title>
+  </head>
+  <body>
+    <div class="accordion-wrapper">
+      <div class="accordion">
+        <div class="title" id="accordion1">
+          <span class="plus">+</span><span class="minus">-</span> SIZE & FIT
+          INFORMATION
+        </div>
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
+          accusamus similique adipisci at in minima ut corporis incidunt odio,
+          architecto eligendi qui iste doloremque. Qui perspiciatis ea nostrum
+          quod aperiam.
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="title" id="accordion2">
+          <span class="plus">+</span><span class="minus">-</span> Editor's Notes
+        </div>
+        <div class="content">
+          Johanna Ortiz's Resort '19 moodboard includes 19th century paintings
+          of Spanish flamenco dancers by British artist George Owen Wynne
+          Apperley. Beautifully made from rich jade silk, this 'Contigo En La
+          Distancia' maxi dress is embroidered with flowers and gathered at the
+          front to create an elegantly draped silhouette. The crocheted fringing
+          along the hem is taken from traditional scarves that have been crafted
+          in the south of Spain for centuries. Match your accessories to the
+          golden threads.
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .accordion-wrapper {
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+        padding-top: 10px;
+      }
+      .accordion.active .plus,
+      .minus {
+        display: none;
+      }
+      .accordion.active .minus,
+      .plus {
+        display: inline;
+      }
+      .accordion > .content {
+        max-height: 0;
+        overflow: hidden;
+        padding-left: 12px;
+      }
+      .accordion.active > .content {
+        max-height: 800px;
+        transition: max-height 0.5s ease-in-out 0s;
+      }
+      .accordion > .title {
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .accordion > .title:hover {
+          cursor: pointer;
+      }
+    </style>
+    <script>
+      var accordions = document.querySelectorAll('.accordion');
+      var active = accordions[1];
+      active.classList.add('active');
+      accordions.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+          active.classList.remove('active');
+          event.currentTarget.classList.add('active');
+          active = event.currentTarget;
+        });
+      });
+
+      function deactivateAll() {
+        accordions.forEach(function(item) {
+          item.classList.remove('active');
+        });
+      }
+    </script>
+  </body>
+</html>
